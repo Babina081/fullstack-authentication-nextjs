@@ -87,7 +87,7 @@ export default function SignUpPage() {
 
         <button
           onClick={onSignup}
-          className="w-full p-2 bg-gradient-radial  from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-lg mb-2 focus:outline-none focus:border-gray-600 "
+          className="w-full p-2 bg-gradient-to-bl  from-purple-500 to-purple-700 hover:from-pink-600 hover:to-purple-600 rounded-lg mb-2 focus:outline-none focus:border-gray-600 text-white transition-all duration-500 ease-in-out  "
         >
           {buttonDisabled ? "Signup Disabled" : "Signup"}
         </button>
