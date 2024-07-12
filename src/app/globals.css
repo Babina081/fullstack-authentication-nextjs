@@ -41,3 +41,25 @@
     opacity 0.2s ease-in-out;
   background-color: white;
 }
+
+.hero__item {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #111;
+  border: 4px solid #333;
+  height: 360px;
+  margin-bottom: 40px;
+  transition: all 0.4s ease-out;
+  font-size: 30px;
+}
+
+.hero__item:last-child {
+  margin: 0;
+}
+
+.hero__item.active {
+  border: 4px solid #0047ffaa;
+  box-shadow: 0 0 20px #0332ad;
+}
