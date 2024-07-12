@@ -1,4 +1,4 @@
-import { LogOut, ShoppingCart } from "lucide-react";
+import { LogOut, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -58,6 +58,13 @@ const Header = () => {
           className="menu  flex gap-1 items-center justify-center  hover:scale-125 transform-gpu duration-300 ease-in-out"
         >
           <LogOut className=" h-7 w-7" />
+        </Link>
+
+        <Link
+          href="/profile"
+          className="menu  flex gap-1 items-center justify-center  hover:scale-125 transform-gpu duration-300 ease-in-out"
+        >
+          <User className=" h-7 w-7" />
         </Link>
       </div>
     </div>
