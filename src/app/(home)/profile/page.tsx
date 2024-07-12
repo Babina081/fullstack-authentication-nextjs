@@ -6,14 +6,16 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import Sidebar from "@/components/profile/Sidebar";
+import Image from "next/image";
+import { ImagePlus, FilePenLine } from "lucide-react";
 type Users = { username: String; email: String; _id: String; password: String };
 
 export default function ProfilePage() {
   const router = useRouter();
-  const [data, setData] = useState("nothing");
+  const [data, setData] = useState({ data: { username: "", email: "" } });
   const [users, setUsers] = useState<Users[]>([]);
 
- const logout = async () => {
+  const logout = async () => {
     try {
       await axios.get("/api/users/logout");
       toast.success("Logout successful");
@@ -26,9 +28,8 @@ export default function ProfilePage() {
 
   const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
-
-    setData(res.data.data._id);
-    console.log(res.data.data._id);
+    setData(res.data);
+    console.log(res.data.data.username);
   };
 
   const fetchUsers = async () => {
@@ -50,6 +51,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     fetchUsers();
+    getUserDetails();
   }, []);
 
   return (
@@ -58,11 +60,59 @@ export default function ProfilePage() {
         Profile
       </h1>
 
-      {/* sidebar */}
-     <Sidebar logout={logout}></Sidebar>
+      <div className="flex w-4/4 h-full gap-4">
+        {/* sidebar */}
+        <Sidebar logout={logout}></Sidebar>
+
+        {/* main */}
+        <main className="w-3/4 bg-purple-100 rounded-lg  flex flex-col p-2">
+          <h1 className="text-lg font-bold text-pruple-900 my-2 ">
+            Personal Information
+          </h1>
+
+          <div className="h-1 w-full bg-purple-600 "></div>
+          <div className="flex justify-between items-start my-2">
+            <div className="relative">
+              <Image
+                src="/profile.png"
+                alt="profile image"
+                width={50}
+                height={50}
+                className="rounded-full h-20 w-20 object-cover"
+              ></Image>
+              <ImagePlus className="  absolute bottom-0 right-0 rounded-full p-1 bg-white border-2 border-purple-400" />
+            </div>
+            <Link
+              href="/"
+              className="flex  gap-2 items-center text-sm text-purple-900 hover:text-purple-400 "
+            >
+              <FilePenLine className="h-5 w-5 " /> Change Profile Information
+            </Link>
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="name">Name:</label>
+            <input
+              name="name"
+              type="text"
+              placeholder={data.data?.username || ""}
+              value=""
+              onChange={() => {}}
+              className=""
+            />
+            <label htmlFor="email">Email:</label>
+            <input
+              type="text"
+              name="email"
+              value=""
+              onChange={() => {}}
+              placeholder={data.data?.email || ""}
+            />
+          </div>
+        </main>
+      </div>
 
       {/* --------------- */}
-      <div className="flex  items-center justify-evenly min-h-screen gap-6">
+      {/* <div className="flex  items-center justify-evenly min-h-screen gap-6">
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
           <h1>Profile</h1>
           <hr />
@@ -113,7 +163,7 @@ export default function ProfilePage() {
             })}
           </ul>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
