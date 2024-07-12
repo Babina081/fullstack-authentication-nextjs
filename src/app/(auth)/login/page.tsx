@@ -55,7 +55,10 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col items-center justify-center h-full py-2  ">
-      <form action="" className="flex flex-col justify-start items-start ">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="flex flex-col justify-start items-start "
+      >
         <h1 className=" text-white text-2xl font-bold mb-4">
           {" "}
           {loading ? "Loading..." : "Log In"}
@@ -91,6 +94,7 @@ export default function LoginPage() {
         </div>
 
         <button
+          type="button"
           onClick={onLogin}
           className="w-full p-2 bg-gradient-to-bl  from-purple-500 to-purple-700 hover:from-pink-600 hover:to-purple-600 rounded-lg mb-2 focus:outline-none focus:border-gray-600 text-white transition-all duration-500 ease-in-out"
         >
