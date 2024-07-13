@@ -15,6 +15,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a password"],
   },
+  gender: {
+    type: String,
+  },
+  phone: {
+    type: Number,
+  },
+ 
   isVerified: { type: Boolean, default: false },
   isAdmin: {
     type: Boolean,
