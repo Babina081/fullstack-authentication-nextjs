@@ -88,7 +88,7 @@ export default function LoginPage() {
             id="remember-me"
             className="h-4 w-4 "
             onChange={handleRememberMeChange}
-            checked={rememberMe}
+            // defaultChecked={rememberMe}
           />
           <label htmlFor="remember-me">Remember Me</label>
         </div>
