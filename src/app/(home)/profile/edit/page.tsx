@@ -97,7 +97,7 @@ const EditProfilePage = () => {
           value={updatedUserData.username}
           onChange={handleChange}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          //   readOnly
+          //   readOnly={false}
         />
         <label htmlFor="email" className="mt-2 ml-2">
           Email:
@@ -108,7 +108,7 @@ const EditProfilePage = () => {
           value={updatedUserData.email}
           onChange={handleChange}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          //   readOnly
+          //   readOnly={false}
         />
         <label htmlFor="gender" className="mt-2 ml-2">
           Gender:
@@ -119,7 +119,7 @@ const EditProfilePage = () => {
           value={updatedUserData.gender}
           onChange={handleChange}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          //   readOnly
+          //   readOnly={false}
         />
         <label htmlFor="phone" className="mt-2 ml-2">
           Phone:
@@ -130,7 +130,7 @@ const EditProfilePage = () => {
           value={updatedUserData.phone}
           onChange={handleChange}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          //   readOnly
+          //   readOnly={false}
         />
         <button
           type="button"
