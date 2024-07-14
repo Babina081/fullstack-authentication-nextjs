@@ -48,11 +48,11 @@ const AdminNavbar = () => {
         <Search />
         <Bell />
         <Image
-          src={data.image}
-          alt={data.username}
+          src={data?.image || "/profile.png"} // Replace '/default-image.jpg' with your actual default image path
+          alt={data.username || "User Profile Image"}
           height={50}
           width={50}
-          className="rounded-full "
+          className="rounded-full border-2 h-14 w-14 border-black object-cover"
         />
         <div className="flex flex-col">
           <h1 className="text-sm font-bold">{data.username}</h1>
