@@ -80,7 +80,7 @@ export default function ProfilePage() {
           value=""
           onChange={() => {}}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          readOnly
+          readOnly={true}
         />
         <label htmlFor="email" className="mt-2 ml-2">
           Email:
@@ -92,7 +92,7 @@ export default function ProfilePage() {
           onChange={() => {}}
           placeholder={data.data?.email || ""}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          readOnly
+          readOnly={true}
         />
         {/* <label htmlFor="dob" className="mt-2 ml-2">
           Date Of Birth:
@@ -104,7 +104,7 @@ export default function ProfilePage() {
           onChange={() => {}}
           placeholder={""}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          readOnly
+          readOnly={true}
         /> */}
         <label htmlFor="gender" className="mt-2 ml-2">
           Gender:
@@ -116,7 +116,7 @@ export default function ProfilePage() {
           onChange={() => {}}
           placeholder={data.data?.gender || ""}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          readOnly
+          readOnly={true}
         />
         <label htmlFor="phone" className="mt-2 ml-2">
           Phone:
@@ -128,7 +128,7 @@ export default function ProfilePage() {
           onChange={() => {}}
           placeholder={data.data?.phone || ""}
           className="focus:outline-none rounded-lg p-2 max-w-96"
-          readOnly
+          readOnly={true}
         />
       </div>
     </main>
