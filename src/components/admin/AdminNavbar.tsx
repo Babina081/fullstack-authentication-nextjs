@@ -39,7 +39,7 @@ const AdminNavbar = () => {
   }, []);
 
   return (
-    <nav className="flex justify-between items-center p-2 bg-gradient-to-tr from-purple-200 to-pink-200 ">
+    <nav className="flex justify-between items-center p-2 bg-gradient-to-tr from-purple-200 to-pink-200 sticky top-0 z-10 ">
       <div className="flex flex-col">
         <p>{greeting},</p>
         <h1 className="text-sm font-bold">{data.username}</h1>
