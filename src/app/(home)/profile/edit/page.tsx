@@ -10,12 +10,13 @@ import toast from "react-hot-toast";
 const EditProfilePage = () => {
   const router = useRouter();
 
-  const [userData, setUserData] = useState({ id: "", username: "", email: "" });
+  const [userData, setUserData] = useState({ id: "", name: "", email: "" });
   const [updatedUserData, setUpdatedUserData] = useState({
-    username: "",
+    name: "",
     email: "",
     gender: "",
     phone: "",
+    address: "",
   });
   const [loading, setLoading] = React.useState(false);
 
@@ -26,9 +27,9 @@ const EditProfilePage = () => {
   const fetchUserDetails = async () => {
     try {
       const res = await axios.get(`/api/users/me`);
-      const { _id, username, email, gender, phone } = res.data.data;
-      setUserData({ id: _id, username, email });
-      setUpdatedUserData({ username, email, gender, phone });
+      const { _id, name, email, gender, phone, address } = res.data.data;
+      setUserData({ id: _id, name, email });
+      setUpdatedUserData({ name, email, gender, phone, address });
     } catch (error) {
       console.error("Error fetching user details:", error);
       toast.error("Failed to fetch user details");
@@ -94,7 +95,7 @@ const EditProfilePage = () => {
         <input
           name="name"
           type="text"
-          value={updatedUserData.username}
+          value={updatedUserData.name}
           onChange={handleChange}
           className="focus:outline-none rounded-lg p-2 max-w-96"
           //   readOnly={false}
@@ -109,6 +110,16 @@ const EditProfilePage = () => {
           onChange={handleChange}
           className="focus:outline-none rounded-lg p-2 max-w-96"
           //   readOnly={false}
+        />
+        <label htmlFor="address" className="mt-2 ml-2">
+          Address:
+        </label>
+        <input
+          type="text"
+          name="address"
+          value={updatedUserData.address}
+          onChange={handleChange}
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
         />
         <label htmlFor="gender" className="mt-2 ml-2">
           Gender:

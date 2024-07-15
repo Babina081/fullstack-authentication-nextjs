@@ -1,46 +1,27 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ImagePlus, FilePenLine } from "lucide-react";
 import Image from "next/image";
-type Users = { username: String; email: String; _id: String; password: String };
 
 export default function ProfilePage() {
-  const router = useRouter();
-
   const [data, setData] = useState({
-    data: { username: "", email: "", gender: "", phone: "" },
+    data: { name: "", email: "", gender: "", phone: "", address: "" },
   });
-  const [users, setUsers] = useState<Users[]>([]);
 
   const getUserDetails = async () => {
-    const res = await axios.get("/api/users/me");
+    const res = await axios.get("/api/users/me", {
+      headers: {
+        Authorization: `Bearer ${process.env.TOKEN}`,
+      },
+    });
     setData(res.data);
-    console.log(res.data.data.username);
-  };
-
-  const fetchUsers = async () => {
-    const response = await axios.get("/api/users");
-    setUsers(response.data.data);
-    console.log(response.data.data);
-  };
-
-  const deleteUser = async (id: any) => {
-    try {
-      const response = await axios.delete(`/api/users/deleteusers?id=${id}`);
-      toast.success("User deleted successfully");
-      fetchUsers();
-    } catch (error: any) {
-      console.log("Deletion Failed: ", error.message);
-      toast.error("Failed to delete user");
-    }
+    console.log(res.data);
   };
 
   useEffect(() => {
-    fetchUsers();
     getUserDetails();
   }, []);
 
@@ -76,10 +57,10 @@ export default function ProfilePage() {
         <input
           name="name"
           type="text"
-          placeholder={data.data?.username || ""}
+          placeholder={data.data?.name || ""}
           value=""
           onChange={() => {}}
-          className="focus:outline-none rounded-lg p-2 max-w-96"
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
           readOnly={true}
         />
         <label htmlFor="email" className="mt-2 ml-2">
@@ -91,7 +72,7 @@ export default function ProfilePage() {
           value=""
           onChange={() => {}}
           placeholder={data.data?.email || ""}
-          className="focus:outline-none rounded-lg p-2 max-w-96"
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
           readOnly={true}
         />
         {/* <label htmlFor="dob" className="mt-2 ml-2">
@@ -103,9 +84,21 @@ export default function ProfilePage() {
           value=""
           onChange={() => {}}
           placeholder={""}
-          className="focus:outline-none rounded-lg p-2 max-w-96"
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
           readOnly={true}
         /> */}
+        <label htmlFor="address" className="mt-2 ml-2">
+          Address:
+        </label>
+        <input
+          type="text"
+          name="address"
+          value=""
+          onChange={() => {}}
+          placeholder={data.data?.address || ""}
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
+          readOnly={true}
+        />
         <label htmlFor="gender" className="mt-2 ml-2">
           Gender:
         </label>
@@ -115,7 +108,7 @@ export default function ProfilePage() {
           value=""
           onChange={() => {}}
           placeholder={data.data?.gender || ""}
-          className="focus:outline-none rounded-lg p-2 max-w-96"
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
           readOnly={true}
         />
         <label htmlFor="phone" className="mt-2 ml-2">
@@ -127,7 +120,7 @@ export default function ProfilePage() {
           value=""
           onChange={() => {}}
           placeholder={data.data?.phone || ""}
-          className="focus:outline-none rounded-lg p-2 max-w-96"
+          className="focus:outline-none  rounded-lg p-2 max-w-96"
           readOnly={true}
         />
       </div>
