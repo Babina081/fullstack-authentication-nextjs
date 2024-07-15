@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: Number,
   },
- 
+  address: { type: String },
   isVerified: { type: Boolean, default: false },
   isAdmin: {
     type: Boolean,
