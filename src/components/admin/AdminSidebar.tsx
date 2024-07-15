@@ -104,7 +104,7 @@ const AdminSidebar = () => {
           </Link>
         </li>
         <li className="py-2 px-1  text-lg rounded-lg hover:text-white cursor-pointer hover:bg-gradient-radial from-purple-500 to-purple-600 w-full">
-          <Link className="flex gap-2 items-center " href="/admin">
+          <Link className="flex gap-2 items-center " href="/admin/manageusers">
             <Users />
             Manage Users
           </Link>
