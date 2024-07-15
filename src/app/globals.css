@@ -320,3 +320,10 @@
     height: 260px;
   }
 }
+
+/* dropdown */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* chart */
