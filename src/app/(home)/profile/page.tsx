@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ImagePlus, FilePenLine } from "lucide-react";
 import Image from "next/image";
