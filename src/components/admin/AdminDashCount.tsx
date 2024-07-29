@@ -14,7 +14,7 @@ const AdminDashCount = () => {
       {
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njk0ZDQwODIxZDk1NjYxNDI5MDJiZDYiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MjExMDQxNDgsImV4cCI6MTcyMTE5MDU0OH0.zzU3Rs9X2NwRFIpqI-t_Za6Uh8hH_ffdxRNq5tYwmmo",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Njk0ZGVlZDIxZDk1NjYxNDI5MDJjNGQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MjIyMjA1NjUsImV4cCI6MTcyMjMwNjk2NX0.i0RMdlgL1i4Z-GODW8Z57-vSCyqvnGADxf4L9WgPp3Y",
         },
       }
     );
