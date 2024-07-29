@@ -46,7 +46,7 @@ const AdminSidebar = () => {
       <h2 className="text-lg font-semibold my-4">General</h2>
       <ul className="w-full  ">
         <li className="py-2 px-1  text-lg rounded-lg hover:text-white cursor-pointer hover:bg-gradient-radial from-purple-500 to-purple-600 w-full">
-          <Link className="flex gap-2 items-center " href="/admin/dashboard">
+          <Link className="flex gap-2 items-center " href="/admin">
             <LayoutDashboard />
             Dashboard
           </Link>
