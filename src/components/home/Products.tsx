@@ -3,23 +3,24 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import ProductCard from "./ProductCard";
 import toast from "react-hot-toast";
+import { products } from "@/lib/data";
 
 const Products = () => {
-  const [products, setProducts] = React.useState([]);
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/api/v1/products");
+  // const [products, setProducts] = React.useState([]);
+  // const fetchProducts = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:3000/api/v1/products");
 
-      setProducts(response.data);
-      console.log(response.data);
-    } catch (error: any) {
-      console.log(error);
-      toast.error(error.message);
-    }
-  };
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  //     setProducts(response.data);
+  //     console.log(response.data);
+  //   } catch (error: any) {
+  //     console.log(error);
+  //     toast.error(error.message);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
   return (
     <section className=" bg-gradient-to-br from-red-300 to-indigo-600  h-full flex flex-col px-14 py-4 content-center text-white bannerSection ">
       <div className="flex flex-col  justify-center md:justify-start items-center md:items-start relative text-left  ">

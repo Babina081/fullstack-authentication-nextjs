@@ -17,7 +17,7 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = React.useState(false);
 
   const handleRememberMeChange = (e: any) => {
-    setRememberMe(e.target.current);
+    setRememberMe(e.target.checked);
   };
 
   const onLogin = async () => {
